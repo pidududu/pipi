@@ -16,14 +16,14 @@
 </html>
 <script>
     function myfetch(url) {
-        var promise = new Promise((resovle, reject) => {
+        var promise = new Promise((resolve, reject) => {
             // 这里执行异步的操作
             // 如果成功执行resolve如果失败reject
             $.ajax({
                 url: url,
                 type: 'get',
                 success: function (data) {
-                    resovle(data)
+                    resolve(data)
                 },
                 error: function (err) {
                     reject(err)
