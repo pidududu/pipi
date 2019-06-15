@@ -12,14 +12,14 @@
 </body>
 </html>
 <script>
-var promise = new Promise((resovle, reject) => {
+var promise = new Promise((resolve, reject) => {
     // 这里执行异步的操作
     // 如果成功执行resolve如果失败reject
     $.ajax({
         url: 'http://localhost:3000/user/vCode',
         type: 'get',
         success: function (data) {
-            resovle(data)
+            resolve(data)
         },
         error: function (err) {
             reject(err)
