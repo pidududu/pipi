@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+// var promise = new Promise(function (resolve, reject) {
+//     if (真) {
+//         resolve()
+//     } else {
+//         reject()
+//     }
+// })
+//  1. 入门级
+var flag = false
+// 1.1 创建promise实例
+var promise = new Promise(function (resolve, reject) {
+    if (flag) { // 这里其实应该是异步判断
+        resolve(6666666) // 666666 是实参
+    } else {
+        reject('错误了')
+    }
+})
+// 1.2 通过.then传递成功和失败的回调函数
+promise.then(function (tt) { // tt形参
+    console.log('哈哈哈哈哈哈，明天终于不再放假了' + tt)
+}, function (err) {
+    console.log('失败了呵呵呵' + err);
+})
+
+
+// 嵌套地狱
+// if (用户) {
+//     if (密码) {
+//         if (验证码) {
+//             if (手机号) {
+//                 if (...)
+//             }
+//         }
+//     }
+// }
+// $.ajax({
+//     success () {
+//         $.ajax({
+//             success () {
+//                 $.ajax({
+//                     // ....
+//                 })
+//             }
+//         })
+//     }
+// })
+</script>

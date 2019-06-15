@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+var promise = new Promise((resovle, reject) => {
+    // 这里执行异步的操作
+    // 如果成功执行resolve如果失败reject
+    $.ajax({
+        url: 'http://localhost:3000/user/vCode',
+        type: 'get',
+        success: function (data) {
+            resovle(data)
+        },
+        error: function (err) {
+            reject(err)
+        }
+    })
+})
+promise.then((res) => {
+    console.log(res)
+}, (err) => {
+    console.log(err)
+})
+
+</script>

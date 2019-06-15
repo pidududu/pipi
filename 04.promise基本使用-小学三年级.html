@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    function myfetch(url) {
+        var promise = new Promise((resovle, reject) => {
+            // 这里执行异步的操作
+            // 如果成功执行resolve如果失败reject
+            $.ajax({
+                url: url,
+                type: 'get',
+                success: function (data) {
+                    resovle(data)
+                },
+                error: function (err) {
+                    reject(err)
+                }
+            })
+        })
+        // return出promise对象
+        return promise
+    }
+    var ss = myfetch('http://localhost:3000/user/vCode1').then((res) => {
+        console.log(res)
+    })
+    .catch((err) => {
+        console.log(err, 2222)
+    })
+
+    // .then中的第二个参数 失败的回到
+    // .catch也是捕获错误异常
+    // 区别 reject他在每一个.then操作中都可以有
+    // catch只需要定义一次 如果有问题那么上述任何环节的出错都会进入
+</script>
